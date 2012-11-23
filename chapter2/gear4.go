@@ -18,7 +18,7 @@ func (gear Gear) Ratio() float64 {
 }
 
 func (gear Gear) GearInches() float64 {
-  return gear.Ratio() * gear.wheel.Diameter()
+  return gear.Ratio() * gear.Wheel().Diameter()
 }
 
 // getters
@@ -28,6 +28,10 @@ func (gear Gear) Chainring() float64 {
 
 func (gear Gear) Cog() float64 {
   return gear.cog
+}
+
+func (gear Gear) Wheel() wheel {
+  return *gear.wheel
 }
 
 // Wheel (internal)
