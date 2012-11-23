@@ -15,11 +15,11 @@ func (ref ObscuringReferences) Data() [][2]int {
   return ref.data
 }
 
-func (ref ObscuringReferences) Diameters() (gear_inches []int) {
+func (ref ObscuringReferences) Diameters() (diameters []int) {
   for _, cell := range ref.Data() {
-    gear_inches = append(gear_inches, cell[0]+(cell[1]*2))
+    diameters = append(diameters, cell[0]+(cell[1]*2))
   }
-  return gear_inches
+  return diameters
 }
 
 func main() {

@@ -4,7 +4,7 @@ package main
 import "fmt"
 
 type Gear struct {
-  chainring float64 // number of teath
+  chainring float64 // number of teeth
   cog       float64
   rim       float64 // diameters
   tire      float64

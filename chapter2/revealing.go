@@ -20,11 +20,11 @@ func (ref RevealingReferences) Wheels() []wheel {
   return ref.wheels
 }
 
-func (ref RevealingReferences) Diameters() (gear_inches []int) {
+func (ref RevealingReferences) Diameters() (diameters []int) {
   for _, wheel := range ref.Wheels() {
-    gear_inches = append(gear_inches, wheel.rim+(wheel.tire*2))
+    diameters = append(diameters, wheel.rim+(wheel.tire*2))
   }
-  return gear_inches
+  return diameters
 }
 
 // ... now everyone can send rim/tire to wheel
