@@ -4,16 +4,16 @@ package main
 import "fmt"
 
 type Gear struct {
-  Chainring int // number of teath
-  Cog       int
+  Chainring float64
+  Cog       float64
 }
 
-func NewGear(chainring, cog int) Gear {
+func NewGear(chainring, cog float64) Gear {
   return Gear{chainring, cog}
 }
 
 func (gear Gear) Ratio() float64 {
-  return float64(gear.Chainring) / float64(gear.Cog)
+  return gear.Chainring / gear.Cog
 }
 
 func main() {
