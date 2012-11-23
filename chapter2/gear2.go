@@ -4,22 +4,38 @@ package main
 import "fmt"
 
 type Gear struct {
-  Chainring float64 // number of teath
-  Cog       float64
-  Rim       float64 // diameters
-  Tire      float64
+  chainring float64 // number of teath
+  cog       float64
+  rim       float64 // diameters
+  tire      float64
 }
 
 func NewGear(chainring, cog, rim, tire float64) Gear {
   return Gear{chainring, cog, rim, tire}
 }
 
+func (gear Gear) Chainring() float64 {
+  return gear.chainring
+}
+
+func (gear Gear) Cog() float64 {
+  return gear.cog
+}
+
+func (gear Gear) Rim() float64 {
+  return gear.rim
+}
+
+func (gear Gear) Tire() float64 {
+  return gear.tire
+}
+
 func (gear Gear) Ratio() float64 {
-  return gear.Chainring / gear.Cog
+  return gear.Chainring() / gear.Cog()
 }
 
 func (gear Gear) GearInches() float64 {
-  return gear.Ratio() * (gear.Rim + (gear.Tire * 2))
+  return gear.Ratio() * (gear.Rim() + (gear.Tire() * 2))
 }
 
 func main() {
