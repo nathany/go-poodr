@@ -23,13 +23,22 @@ type Options map[string]interface{}
   dependence like in the Ruby example.
 */
 func NewGear(options Options) *Gear {
-  chainring, _ := options["chainring"].(float64)
-  cog, _ := options["cog"].(float64)
+  chainring, ok := options["chainring"].(float64)
+  if !ok {
+    chainring = 40
+  }
+
+  cog, ok := options["cog"].(float64)
+  if !ok {
+    cog = 18
+  }
+
   wheel, _ := options["wheel"].(Diameter) // default nil
 
   /*
      The key/value syntax of composite literals would be much simpler and more
-     idiomatic. It could be used directly by getting rid of NewGear altogether.
+     idiomatic. It could be used directly by getting rid of NewGear altogether,
+     though some setup would be necessary if 0-value defaults are not enough.
   */
   return &Gear{Chainring: chainring, Cog: cog, Wheel: wheel}
 }
