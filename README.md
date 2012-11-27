@@ -46,6 +46,10 @@ Use the [Go Playground](http://play.golang.org/) or `go run` to try these exampl
 
 (which Go doesn't have)
 
+* `bikes1.go` Starting with a road bike.
+* `bikes2.go` We need mountain bikes too. Switching on the type.
+
+
 ### 7. Sharing Role Behavior With Modules
 
 ### 8. Combining Objects With Composition
