@@ -51,8 +51,10 @@ Use the [Go Playground](http://play.golang.org/) or `go run` to try these exampl
 * Skipped misapplying inheritance.
 * `bikes4.go` Implicit delegation and type embedding instead of subclasses.
 * `bikes5.go` Specializing the Spares method.
+* `bikes6.go` Use a hook to push responsibilities into the embedded type.
 
-There really is no way to do the template method pattern here.
+The template method pattern would require a reference to the embedded type,
+after it is created. Seems like a pattern that shouldn't be attempted in Go.
 
 ### 7. Sharing Role Behavior With Modules
 
