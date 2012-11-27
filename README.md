@@ -48,7 +48,8 @@ Use the [Go Playground](http://play.golang.org/) or `go run` to try these exampl
 
 * `bikes1.go` Starting with a road bike.
 * `bikes2.go` We need mountain bikes too. Switching on the type.
-
+* bikes3.go (skipped) Misapplying inheritance.
+* `bikes4.go` Implicit delegation and type embedding instead of subclasses.
 
 ### 7. Sharing Role Behavior With Modules
 
