@@ -6,25 +6,29 @@ Use the [Go Playground](http://play.golang.org/) or `go run` to try these exampl
 
     chapter2> go run gear1.go
 
+### 1. Object-Oriented Design
+
+(intro)
+
 ### 2. Designing Classes with a Single Responsibility
 
-* gear1.go defines a basic Gear with getters
-* gear2.go introduces a new feature (and responsibility)
-* gear3.go hide instance variables (behavior in one place)
-* obscure.go depending on complicated data structures is bad
-* revealing.go isolating the incoming array
-* gear4.go extracting wheel as an internal structure
-* gear5.go a real Wheel with dependency injection
+* `gear1.go` defines a basic Gear with getters
+* `gear2.go` introduces a new feature (and responsibility)
+* `gear3.go` hide instance variables (behavior in one place)
+* `obscure.go` depending on complicated data structures is bad
+* `revealing.go` isolating the incoming array
+* `gear4.go` extracting wheel as an internal structure
+* `gear5.go` a real Wheel with dependency injection
 
 ### 3. Managing Dependencies
 
-* 1-dependencies.go Gear knows too much about Wheel (actually a step back from gear5.go)
-* 2-duck-type.go We don't need a Wheel specifically, just an object that responds to Diameter()
-* 3-isolate-new.go Isolate instance creation (if you can't inject the dependency for some reason)
-* 4-isolate-messages.go Isolate external messages that could be vulnerable to change
-* 5-map-init.go Remove argument order dependencies (probably that the best way to accomplish this)
+* `1-dependencies.go` Gear knows too much about Wheel (actually a step back from gear5.go)
+* `2-duck-type.go` We don't need a Wheel specifically, just an object that responds to Diameter()
+* `3-isolate-new.go` Isolate instance creation (if you can't inject the dependency for some reason)
+* `4-isolate-messages.go` Isolate external messages that could be vulnerable to change
+* `5-map-init.go` Remove argument order dependencies (probably that the best way to accomplish this)
 * 6-gear-wrapper.go (skipped) A factory method to work with an unwieldy constructor.
-* 7-reverse-dependencies.go What if Wheel depends on Gear? (which is more stable)
+* `7-reverse-dependencies.go` What if Wheel depends on Gear? (which is more stable)
 
 ### 4. Creating Flexible Interfaces
 
@@ -34,9 +38,9 @@ Use the [Go Playground](http://play.golang.org/) or `go run` to try these exampl
 
 (structural typing in Go)
 
-* trip1.go A Trip that knows it needs the bicycles prepared.
-* trip2.go Trip preparation becomes more complicated. It knows too much.
-* trip3.go A Preparer interface, more abstract but easier to extend.
+* `trip1.go` A Trip that knows it needs the bicycles prepared.
+* `trip2.go` Trip preparation becomes more complicated. It knows too much.
+* `trip3.go` A Preparer interface, more abstract but easier to extend.
 
 ### 6. Acquiring Behavior Through Inheritance
 
