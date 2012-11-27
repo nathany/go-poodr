@@ -3,13 +3,6 @@ package main
 
 import "fmt"
 
-type style int
-
-const (
-  Road style = iota
-  Mountain
-)
-
 /*
   Promote abstract behavior up to Bicycle rather than extracting it down.
 */
