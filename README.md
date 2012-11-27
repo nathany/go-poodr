@@ -27,7 +27,7 @@ Use the [Go Playground](http://play.golang.org/) or `go run` to try these exampl
 * `3-isolate-new.go` Isolate instance creation (if you can't inject the dependency for some reason)
 * `4-isolate-messages.go` Isolate external messages that could be vulnerable to change
 * `5-map-init.go` Remove argument order dependencies (probably that the best way to accomplish this)
-* 6-gear-wrapper.go (skipped) A factory method to work with an unwieldy constructor.
+* Skipped a factory method to work with an unwieldy constructor (gear-wrapper).
 * `7-reverse-dependencies.go` What if Wheel depends on Gear? (which is more stable)
 
 ### 4. Creating Flexible Interfaces
@@ -48,8 +48,9 @@ Use the [Go Playground](http://play.golang.org/) or `go run` to try these exampl
 
 * `bikes1.go` Starting with a road bike.
 * `bikes2.go` We need mountain bikes too. Switching on the type.
-* bikes3.go (skipped) Misapplying inheritance.
+* Skipped misapplying inheritance.
 * `bikes4.go` Implicit delegation and type embedding instead of subclasses.
+* There really is no way to do the template method pattern here.
 
 ### 7. Sharing Role Behavior With Modules
 
