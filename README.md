@@ -59,6 +59,7 @@ after it is created. Seems like a pattern that shouldn't be attempted in Go.
 ### 7. Sharing Role Behavior With Modules
 
 * `schedule1.go` Scheduling as part of Bicycle, for later extraction.
+* `schedule2.go` Extract and delegate to Schedulable.
 
 
 ### 8. Combining Objects With Composition
