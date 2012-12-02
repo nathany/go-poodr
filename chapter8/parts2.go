@@ -5,14 +5,11 @@ import "fmt"
 
 /*
   Bicycle
+  Automatic delegation to Spares() is provided by Parts.
 */
 type Bicycle struct {
-  Size  string
-  Parts Parts
-}
-
-func (bike Bicycle) Spares() []Part {
-  return bike.Parts.Spares()
+  Size string
+  Parts
 }
 
 /*
