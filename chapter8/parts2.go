@@ -58,4 +58,11 @@ func main() {
 
   fmt.Println(mountainBike.Size)
   fmt.Println(mountainBike.Spares())
+
+  // We can combine Parts and still call Spares, unlike the Ruby example. (page 173)
+  comboParts := Parts{}
+  comboParts = append(comboParts, mountainBike.Parts...)
+  comboParts = append(comboParts, roadBike.Parts...)
+  fmt.Println(len(comboParts))
+  fmt.Println(comboParts.Spares())
 }
