@@ -65,6 +65,7 @@ after it is created. Seems like a pattern that shouldn't be attempted in Go.
 
 * Skipping first transition, which still uses template methods and inheritance.
 * `parts2.go` Bicycle composed of Parts, which is a slice of Part.
+* `parts3.go` Rather than a PartsFactory, I use array-style composite literals.
 
 ### 9. Designing Cost-Effective Tests
 
