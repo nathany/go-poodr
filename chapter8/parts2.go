@@ -19,7 +19,7 @@ type Bicycle struct {
 */
 type Parts []Part
 
-func (parts Parts) Spares() (spares []Part) {
+func (parts Parts) Spares() (spares Parts) {
   for _, part := range parts {
     if part.NeedsSpare {
       spares = append(spares, part)
