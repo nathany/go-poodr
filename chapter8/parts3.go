@@ -30,7 +30,7 @@ func (parts Parts) Spares() (spares Parts) {
 
 /*
   Part
-  I don't see much need for a PartsFactory to convert an array to an object. Go's
+  I don't see much need for a PartsFactory to convert an array to objects. Go's
   composite literal syntax can use either name:values or just values, with the one
   gotcha that all parameters must be specified with the later syntax.
 */
@@ -41,20 +41,20 @@ type Part struct {
 }
 
 var (
-  roadBikeParts = Parts{
+  RoadBikeParts = Parts{
     {"chain", "10-speed", true},
     {"tire_size", "23", true},
     {"tape_color", "red", true},
   }
 
-  mountainBikeParts = Parts{
+  MountainBikeParts = Parts{
     {"chain", "10-speed", true},
     {"tire_size", "2.1", true},
     {"front_shock", "Manitou", false},
     {"rear_shock", "Fox", true},
   }
 
-  recumbentBikeParts = Parts{
+  RecumbentBikeParts = Parts{
     {"chain", "9-speed", true},
     {"tire_size", "28", true},
     {"flag", "tall and orange", true},
@@ -62,9 +62,9 @@ var (
 )
 
 func main() {
-  roadBike := Bicycle{Size: "L", Parts: roadBikeParts}
-  mountainBike := Bicycle{Size: "L", Parts: mountainBikeParts}
-  recumbentBike := Bicycle{Size: "L", Parts: recumbentBikeParts}
+  roadBike := Bicycle{Size: "L", Parts: RoadBikeParts}
+  mountainBike := Bicycle{Size: "L", Parts: MountainBikeParts}
+  recumbentBike := Bicycle{Size: "L", Parts: RecumbentBikeParts}
 
   fmt.Println(roadBike.Spares())
   fmt.Println(mountainBike.Spares())
