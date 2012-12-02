@@ -61,8 +61,10 @@ after it is created. Seems like a pattern that shouldn't be attempted in Go.
 * `schedule1.go` Scheduling as part of Bicycle, for later extraction.
 * `schedule2.go` Extract and delegate to Schedulable.
 
-
 ### 8. Combining Objects With Composition
+
+* Skipping first transition, which still uses template methods and inheritance.
+* `parts2.go` Bicycle composed of Parts, which is a slice of Part.
 
 ### 9. Designing Cost-Effective Tests
 
