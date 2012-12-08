@@ -16,12 +16,12 @@ var _ = Suite(&MySuite{})
 
 func (s *MySuite) TestCalculatesDiameter(c *C) {
   wheel := gear1.NewWheel(26, 1.5)
-  c.Assert(wheel.Diameter(), Within, 29.0, 0.01)
+  c.Assert(wheel.Diameter(), Within, 0.01, 29.0)
 }
 
 func (s *MySuite) TestCalculatesGearInches(c *C) {
   gear := gear1.NewGear(52, 11, 26, 1.5)
-  c.Assert(gear.GearInches(), Within, 137.1, 0.01)
+  c.Assert(gear.GearInches(), Within, 0.01, 137.1)
 }
 
 /*
@@ -33,7 +33,7 @@ type withinChecker struct {
 }
 
 var Within Checker = &withinChecker{
-  &CheckerInfo{Name: "Within", Params: []string{"obtained", "expected", "delta"}},
+  &CheckerInfo{Name: "Within", Params: []string{"obtained", "delta", "expected"}},
 }
 
 func (c *withinChecker) Check(params []interface{}, names []string) (result bool, error string) {
@@ -41,13 +41,13 @@ func (c *withinChecker) Check(params []interface{}, names []string) (result bool
   if !ok {
     return false, "obtained must be a float64"
   }
-  expected, ok := params[1].(float64)
-  if !ok {
-    return false, "expected must be a float64"
-  }
-  delta, ok := params[2].(float64)
+  delta, ok := params[1].(float64)
   if !ok {
     return false, "delta must be a float64"
+  }
+  expected, ok := params[2].(float64)
+  if !ok {
+    return false, "expected must be a float64"
   }
   return math.Abs(obtained-expected) <= delta, ""
 }
