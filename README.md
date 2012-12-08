@@ -69,10 +69,14 @@ after it is created. Seems like a pattern that shouldn't be attempted in Go.
 
 ### 9. Designing Cost-Effective Tests
 
+Use `go test` to run these, eg:
 
+    chapter9> go test gear1/gear1_check_test.go
 
+Your GOPATH matters for these, as we are importing a separate package for black box testing.
 
-
+* `gear1/gear1_test.go` A basic example using Go's built in testing facilities.
+* `gear1/gear1_check_test.go` The same code tested with gocheck and a custom matcher.
 
 
 
