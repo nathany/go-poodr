@@ -25,7 +25,7 @@ func (parts Parts) Spares() (spares Parts) {
       spares = append(spares, part)
     }
   }
-  return spares
+  return
 }
 
 /*
