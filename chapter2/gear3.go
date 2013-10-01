@@ -7,14 +7,14 @@
 package road_to_ruin
 
 type Gear struct {
-  Chainring float64
-  Cog       float64
+	Chainring float64
+	Cog       float64
 }
 
 func NewGear(chainring, cog float64) Gear {
-  return Gear{chainring, cog}
+	return Gear{chainring, cog}
 }
 
 func (gear Gear) Ratio() float64 {
-  return gear.Chainring / gear.Cog // <== road to ruin
+	return gear.Chainring / gear.Cog // <== road to ruin
 }

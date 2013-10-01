@@ -6,7 +6,7 @@ import "fmt"
 type Bicycle string
 
 type Trip struct {
-  bicycles []Bicycle
+	bicycles []Bicycle
 }
 
 /*
@@ -15,28 +15,28 @@ type Trip struct {
   Trip wants to achieve.
 */
 type BicyclePreparer interface {
-  PrepareBicycles([]Bicycle)
+	PrepareBicycles([]Bicycle)
 }
 
 func (trip Trip) Prepare(mechanic BicyclePreparer) {
-  mechanic.PrepareBicycles(trip.bicycles)
+	mechanic.PrepareBicycles(trip.bicycles)
 }
 
 type Mechanic string
 
 func (mechanic Mechanic) PrepareBicycles(bicycles []Bicycle) {
-  fmt.Printf("Preparing %d bicycles...\n", len(bicycles))
-  for _, bicycle := range bicycles {
-    mechanic.PrepareBicycle(bicycle)
-  }
+	fmt.Printf("Preparing %d bicycles...\n", len(bicycles))
+	for _, bicycle := range bicycles {
+		mechanic.PrepareBicycle(bicycle)
+	}
 }
 
 func (mechanic Mechanic) PrepareBicycle(bicycle Bicycle) {
-  fmt.Println("Preparing bicycle...", bicycle)
+	fmt.Println("Preparing bicycle...", bicycle)
 }
 
 func main() {
-  mechanic := new(Mechanic)
-  trip := Trip{[]Bicycle{"my bike", "your bike"}}
-  trip.Prepare(mechanic)
+	mechanic := new(Mechanic)
+	trip := Trip{[]Bicycle{"my bike", "your bike"}}
+	trip.Prepare(mechanic)
 }

@@ -8,8 +8,8 @@ import "fmt"
   Automatic delegation to Spares() is provided by Parts.
 */
 type Bicycle struct {
-  Size string
-  Parts
+	Size string
+	Parts
 }
 
 /*
@@ -20,12 +20,12 @@ type Bicycle struct {
 type Parts []Part
 
 func (parts Parts) Spares() (spares Parts) {
-  for _, part := range parts {
-    if part.NeedsSpare {
-      spares = append(spares, part)
-    }
-  }
-  return spares
+	for _, part := range parts {
+		if part.NeedsSpare {
+			spares = append(spares, part)
+		}
+	}
+	return spares
 }
 
 /*
@@ -34,35 +34,35 @@ func (parts Parts) Spares() (spares Parts) {
   write a NewSparePart initializer that defaults it to true.
 */
 type Part struct {
-  Name        string
-  Description string
-  NeedsSpare  bool
+	Name        string
+	Description string
+	NeedsSpare  bool
 }
 
 func main() {
-  chain := Part{Name: "chain", Description: "10-speed", NeedsSpare: true}
-  roadTire := Part{Name: "tire_size", Description: "23", NeedsSpare: true}
-  tape := Part{Name: "tape_color", Description: "red", NeedsSpare: true}
-  mountainTire := Part{Name: "tire_size", Description: "2.1", NeedsSpare: true}
-  rearShock := Part{Name: "rear_shock", Description: "Fox", NeedsSpare: true}
-  frontShock := Part{Name: "front_shock", Description: "Manitou"}
+	chain := Part{Name: "chain", Description: "10-speed", NeedsSpare: true}
+	roadTire := Part{Name: "tire_size", Description: "23", NeedsSpare: true}
+	tape := Part{Name: "tape_color", Description: "red", NeedsSpare: true}
+	mountainTire := Part{Name: "tire_size", Description: "2.1", NeedsSpare: true}
+	rearShock := Part{Name: "rear_shock", Description: "Fox", NeedsSpare: true}
+	frontShock := Part{Name: "front_shock", Description: "Manitou"}
 
-  roadBikeParts := Parts{chain, roadTire, tape}
-  roadBike := Bicycle{Size: "L", Parts: roadBikeParts}
+	roadBikeParts := Parts{chain, roadTire, tape}
+	roadBike := Bicycle{Size: "L", Parts: roadBikeParts}
 
-  mountainBikeParts := Parts{chain, mountainTire, frontShock, rearShock}
-  mountainBike := Bicycle{Size: "L", Parts: mountainBikeParts}
+	mountainBikeParts := Parts{chain, mountainTire, frontShock, rearShock}
+	mountainBike := Bicycle{Size: "L", Parts: mountainBikeParts}
 
-  fmt.Println(roadBike.Size)
-  fmt.Println(roadBike.Spares())
+	fmt.Println(roadBike.Size)
+	fmt.Println(roadBike.Spares())
 
-  fmt.Println(mountainBike.Size)
-  fmt.Println(mountainBike.Spares())
+	fmt.Println(mountainBike.Size)
+	fmt.Println(mountainBike.Spares())
 
-  // We can combine Parts and still call Spares, unlike the Ruby example. (page 173)
-  comboParts := Parts{}
-  comboParts = append(comboParts, mountainBike.Parts...)
-  comboParts = append(comboParts, roadBike.Parts...)
-  fmt.Println(len(comboParts))
-  fmt.Println(comboParts.Spares())
+	// We can combine Parts and still call Spares, unlike the Ruby example. (page 173)
+	comboParts := Parts{}
+	comboParts = append(comboParts, mountainBike.Parts...)
+	comboParts = append(comboParts, roadBike.Parts...)
+	fmt.Println(len(comboParts))
+	fmt.Println(comboParts.Spares())
 }

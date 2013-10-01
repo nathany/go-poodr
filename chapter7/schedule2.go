@@ -2,8 +2,8 @@
 package main
 
 import (
-  "fmt"
-  "time"
+	"fmt"
+	"time"
 )
 
 /*
@@ -12,38 +12,38 @@ import (
 type Schedule struct{}
 
 func (schedule Schedule) IsScheduled(schedulable Schedulable, startDate, endDate time.Time) bool {
-  fmt.Printf("This %T is not scheduled\n between %s and %s", schedulable, startDate, endDate)
-  return false
+	fmt.Printf("This %T is not scheduled\n between %s and %s", schedulable, startDate, endDate)
+	return false
 }
 
 func NewSchedule() *Schedule {
-  return &Schedule{}
+	return &Schedule{}
 }
 
 /*
   Schedulable
 */
 type Schedulable struct {
-  LeadDays Days
-  schedule *Schedule
+	LeadDays Days
+	schedule *Schedule
 }
 
 func (schedulable Schedulable) Schedule() *Schedule {
-  if schedulable.schedule == nil {
-    schedulable.schedule = NewSchedule()
-  }
-  return schedulable.schedule
+	if schedulable.schedule == nil {
+		schedulable.schedule = NewSchedule()
+	}
+	return schedulable.schedule
 }
 
 func (schedulable Schedulable) IsSchedulable(startDate, endDate time.Time) bool {
-  leadDuration := schedulable.LeadDays.Duration()
-  start := startDate.Add(-leadDuration)
-  return !schedulable.IsScheduled(start, endDate)
+	leadDuration := schedulable.LeadDays.Duration()
+	start := startDate.Add(-leadDuration)
+	return !schedulable.IsScheduled(start, endDate)
 }
 
 func (schedulable Schedulable) IsScheduled(startDate, endDate time.Time) bool {
-  // Right now schedule refers to main.Schedulable rather than Bicycle.
-  return schedulable.Schedule().IsScheduled(schedulable, startDate, endDate)
+	// Right now schedule refers to main.Schedulable rather than Bicycle.
+	return schedulable.Schedule().IsScheduled(schedulable, startDate, endDate)
 }
 
 /*
@@ -52,7 +52,7 @@ func (schedulable Schedulable) IsScheduled(startDate, endDate time.Time) bool {
 type Days int
 
 func (days Days) Duration() time.Duration {
-  return time.Duration(days) * time.Hour * 24
+	return time.Duration(days) * time.Hour * 24
 }
 
 /*
@@ -62,22 +62,22 @@ func (days Days) Duration() time.Duration {
   just initalize Schedulable with LeadDays here.
 */
 type Bicycle struct {
-  Schedulable
-  Size, Chain, TireSize string
+	Schedulable
+	Size, Chain, TireSize string
 }
 
 func NewBicycle() *Bicycle {
-  return &Bicycle{Schedulable: Schedulable{LeadDays: 1}}
+	return &Bicycle{Schedulable: Schedulable{LeadDays: 1}}
 }
 
 /*
   Main
 */
 func main() {
-  const dateLayout = "2006/1/2"
-  starting, _ := time.Parse(dateLayout, "2015/09/04")
-  ending, _ := time.Parse(dateLayout, "2015/09/10")
+	const dateLayout = "2006/1/2"
+	starting, _ := time.Parse(dateLayout, "2015/09/04")
+	ending, _ := time.Parse(dateLayout, "2015/09/10")
 
-  b := NewBicycle()
-  b.IsSchedulable(starting, ending)
+	b := NewBicycle()
+	b.IsSchedulable(starting, ending)
 }

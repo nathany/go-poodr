@@ -8,9 +8,9 @@ type Customer string
 type Vehicle string
 
 type Trip struct {
-  Bicycles  []Bicycle
-  Customers []Customer
-  Vehicle   Vehicle
+	Bicycles  []Bicycle
+	Customers []Customer
+	Vehicle   Vehicle
 }
 
 /*
@@ -18,13 +18,13 @@ type Trip struct {
   details of how they do it.
 */
 type Preparer interface {
-  PrepareTrip(*Trip)
+	PrepareTrip(*Trip)
 }
 
 func (trip Trip) Prepare(preparers []Preparer) {
-  for _, preparer := range preparers {
-    preparer.PrepareTrip(&trip)
-  }
+	for _, preparer := range preparers {
+		preparer.PrepareTrip(&trip)
+	}
 }
 
 /*
@@ -33,16 +33,16 @@ func (trip Trip) Prepare(preparers []Preparer) {
 type Mechanic string
 
 func (mechanic Mechanic) PrepareTrip(trip *Trip) {
-  bicycles := trip.Bicycles
+	bicycles := trip.Bicycles
 
-  fmt.Printf("%s is preparing %d bicycles...\n", mechanic, len(bicycles))
-  for _, bicycle := range bicycles {
-    mechanic.PrepareBicycle(bicycle)
-  }
+	fmt.Printf("%s is preparing %d bicycles...\n", mechanic, len(bicycles))
+	for _, bicycle := range bicycles {
+		mechanic.PrepareBicycle(bicycle)
+	}
 }
 
 func (mechanic Mechanic) PrepareBicycle(bicycle Bicycle) {
-  fmt.Printf("Preparing bicycle... %s.\n", bicycle)
+	fmt.Printf("Preparing bicycle... %s.\n", bicycle)
 }
 
 /*
@@ -51,11 +51,11 @@ func (mechanic Mechanic) PrepareBicycle(bicycle Bicycle) {
 type TripCoordinator string
 
 func (coordinator TripCoordinator) PrepareTrip(trip *Trip) {
-  coordinator.BuyFood(trip.Customers)
+	coordinator.BuyFood(trip.Customers)
 }
 
 func (coordinator TripCoordinator) BuyFood(customers []Customer) {
-  fmt.Printf("%s is buying food for %s.\n", coordinator, customers)
+	fmt.Printf("%s is buying food for %s.\n", coordinator, customers)
 }
 
 /*
@@ -64,26 +64,26 @@ func (coordinator TripCoordinator) BuyFood(customers []Customer) {
 type Driver string
 
 func (driver Driver) PrepareTrip(trip *Trip) {
-  vehicle := trip.Vehicle
-  driver.GasUp(vehicle)
-  driver.FillWaterTank(vehicle)
+	vehicle := trip.Vehicle
+	driver.GasUp(vehicle)
+	driver.FillWaterTank(vehicle)
 }
 
 func (driver Driver) GasUp(vehicle Vehicle) {
-  fmt.Printf("%s is gassing up %s.\n", driver, vehicle)
+	fmt.Printf("%s is gassing up %s.\n", driver, vehicle)
 }
 
 func (driver Driver) FillWaterTank(vehicle Vehicle) {
-  fmt.Printf("%s is filling the water tank for %s.\n", driver, vehicle)
+	fmt.Printf("%s is filling the water tank for %s.\n", driver, vehicle)
 }
 
 func main() {
-  trip := Trip{
-    Bicycles:  []Bicycle{"my bike", "your bike"},
-    Customers: []Customer{"me", "you"},
-    Vehicle:   "the truck",
-  }
-  trip.Prepare([]Preparer{
-    Mechanic("Joe"), TripCoordinator("Kim"), Driver("Dave"),
-  })
+	trip := Trip{
+		Bicycles:  []Bicycle{"my bike", "your bike"},
+		Customers: []Customer{"me", "you"},
+		Vehicle:   "the truck",
+	}
+	trip.Prepare([]Preparer{
+		Mechanic("Joe"), TripCoordinator("Kim"), Driver("Dave"),
+	})
 }
